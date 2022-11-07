@@ -141,7 +141,7 @@ class InterfazRepositorio(Generic[T]):
             data.append(x)
         return data
     
-    #Para los query de agragación o relación
+    #Para los query de agregación o relación
     def queryAggregation(self, theQuery):
         laColeccion = self.db[self.collection]
         data = []

@@ -15,18 +15,16 @@ miControladorCandidato = CandidatoControlador()
 miControladorMesa = MesaControlador()
 miControladorResultado = ResultadoControlador()
 
-###########################################
-###      Ruta de running servers        ###
-###########################################
+#Ruta de running servers
+
 @app.route("/", methods=["GET"])
 def test():
     json = {}
     json["message"] = "Server running ... :)"
     return jsonify(json)
 
-###########################################
-###      ENDPOINTS PARTIDOS             ###
-###########################################
+# ENDPOINTS PARTIDOS#
+
 @app.route("/partidos", methods=["GET"])
 def getPartidos():
     json = miControladorPartido.index()
@@ -54,9 +52,9 @@ def eliminarPartido(id):
     json = miControladorPartido.delete(id)
     return jsonify(json)
 
-###########################################
-###      ENDPOINTS CANDIDATOS           ###
-###########################################
+
+# ENDPOINTS CANDIDATOS #
+
 @app.route("/candidatos", methods=["GET"])
 def getCandidatos():
     json = miControladorCandidato.index()
@@ -89,9 +87,9 @@ def asignarPartidoCandidato(id_candidato, id_partido):
     json = miControladorCandidato.asignarCandidato(id_candidato, id_partido)
     return jsonify(json)
 
-###########################################
-###          ENDPOINTS MESA             ###
-###########################################
+
+# ENDPOINTS MESAS #
+
 @app.route("/mesas", methods=["GET"])
 def getMesas():
     json = miControladorMesa.index()
@@ -119,9 +117,7 @@ def eliminarMesa(id):
     json = miControladorMesa.delete(id)
     return jsonify(json)
 
-###########################################
-###    ENDPOINTS RESULTADOS             ###
-###########################################
+# ENDPOINTS RESULTADOS #
 
 @app.route("/resultados", methods=["GET"])
 def getResultados():
